@@ -41,7 +41,5 @@ function calculateTotalMortgage(percent, contribution, amount, countMonths) {
     const payment = loan * (percentPerMonth + percentPerMonth / (Math.pow((1 + percentPerMonth), countMonths) - 1));
     const totalAmount = Number((payment * countMonths).toFixed(2));
     
-    console.log(`Сумма, которую клиент заплатит банку: ${totalAmount}\nВ том числе:\n\tПервоначальный взнос ${contribution}\n\tПогашение основного долга ${loan}\n\tПроценты за пользование кредитом ${(payment * quantityOfMonth - loan).toFixed(2)}`);
-  
     return totalAmount;
   }
