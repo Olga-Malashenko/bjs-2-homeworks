@@ -21,9 +21,6 @@ function solveEquation(a, b, c) {
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
   
-  //function calculateTotalMortgage(percent, contribution, amount, date) {
-    //let totalAmount;
-  
     if (isNaN(+percent)) {
       return false;
     }
