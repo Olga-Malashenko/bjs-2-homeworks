@@ -5,9 +5,7 @@ function Student(name, gender, age) {
     this.marks = [];
 }
 
-let student1 = new Student("Василиса", "женский", 19);
-let student2 = new Student("Артём", "мужской", 25);
-let student3 = new Student("Надежда", "женский", 20);
+
 
 Student.prototype.setSubject = function (subjectName) {
   this.subject = subjectName;
