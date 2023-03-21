@@ -94,6 +94,7 @@ class Library {
                 this.books.splice(i, 1);
                 return book;
             }
+            return null;
         }
     }
 
