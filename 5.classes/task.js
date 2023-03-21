@@ -78,13 +78,12 @@ class Library {
     findBookBy(type, value) {
         for (let book of this.books) {
             for (let property in book) {
-                if (book[property] == value && String(property) === String(type)) {
+                if (String(book[property]) === String(value) && String(property) === String(type)) {
                     return book;
-                } else {
-                    return null;
                 }
             }
-        }  
+        }
+        return null; 
     }
 
     giveBookByName(bookName) {
