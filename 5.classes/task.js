@@ -113,7 +113,7 @@ class Student{
             return;
         }
         if (!this.marks.hasOwnProperty('subject')) {
-            this.marks.subject = subject;
+            this.marks.subject = [];
         }
         this.marks.subject.push(mark);
     }
