@@ -108,7 +108,7 @@ class Student{
         this.marks = {};
     }
       
-    addMarks(mark, subject) {
+    addMark(mark, subject) {
         if (mark < 2 || mark > 5) {
             return;
         }
