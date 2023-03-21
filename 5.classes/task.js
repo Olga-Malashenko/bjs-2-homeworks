@@ -130,7 +130,7 @@ class Student{
         const subjects = Object.keys(this.marks)
         const sum = 0;
         for (let subject of subjects) {
-            sum += getAverageBySubject();
+            sum += subject.getAverageBySubject();
         }
         return sum / subjects.length;
     }
