@@ -78,6 +78,7 @@ class Library {
     findBookBy(type, value) {
         for (let book of this.books) {
             for (let property in book) {
+    
                 if (String(book[property]) === String(value) && String(property) === String(type)) {
                     return book;
                 }
@@ -98,3 +99,43 @@ class Library {
     }
 
 }
+
+//  Дополнительное задание  
+
+class Student{
+    constructor(name) {
+        this.name = name;
+        this.marks = {};
+    }
+      
+    addMarks(mark, subject) {
+        if (mark < 2 || mark > 5) {
+            return;
+        }
+        if (!this.marks.hasOwnProperty('subject')) {
+            this.marks.subject = subject;
+        }
+        this.marks.subject.push(mark);
+    }
+
+    getAverageBySubject() {
+        if (!this.marks.hasOwnProperty('subject') || this.marks.subject.length === 0) {
+          return 0;
+        }
+        const sum = this.marks.subject.reduce((acc, mark) => acc + mark, 0);
+        return sum / this.marks.subject.length;
+    }
+
+    getAverage() {
+        const subjects = Object.keys(this.marks)
+        const sum = 0;
+        for (let subject of subjects) {
+            sum += getAverageBySubject();
+        }
+        return sum / subjects.length;
+    }
+
+}
+
+
+
