@@ -1,5 +1,5 @@
 class PrintEditionItem {
-    constructor(name, releaseDate, pagesCount, type) {
+    constructor(name, releaseDate, pagesCount) {
         this.name = name;
         this.releaseDate = releaseDate;
         this.pagesCount = pagesCount;
@@ -7,12 +7,8 @@ class PrintEditionItem {
         this.state = 100;
     }
 
-    fix () {
-        this.state = 1.5 * this.state;
-    }
-
-    set countState(state) {
-        if (state <= 0) {
+    set state (state) {
+        if ( state <= 0) {
             this._state = 0;
         } else if (state >= 100) {
             this._state = 100;
@@ -21,9 +17,14 @@ class PrintEditionItem {
         }
     }
 
-    get countState() {
+    get state() {
         return this._state;
     } 
+
+    fix () {
+        this.state = 1.5 * this.state;
+    } 
+    
 }
 
 class Magazine extends PrintEditionItem {
