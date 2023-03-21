@@ -118,7 +118,7 @@ class Student{
         this.marks.subject.push(mark);
     }
 
-    getAverageBySubject() {
+    getAverageBySubject(subject) {
         if (!this.marks.hasOwnProperty('subject') || this.marks.subject.length === 0) {
           return 0;
         }
@@ -128,9 +128,9 @@ class Student{
 
     getAverage() {
         const subjects = Object.keys(this.marks)
-        const sum = 0;
+        let sum = 0;
         for (let subject of subjects) {
-            sum += subject.getAverageBySubject();
+            sum += this.getAverageBySubject(subject);
         }
         return sum / subjects.length;
     }
