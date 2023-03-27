@@ -75,33 +75,10 @@ class Library {
         }
     }
 
-    /*findBookBy(type, value) {
-        for (let book of this.books) {
-            for (let property in book) {
-    
-                if (String(book[property]) === String(value) && String(property) === String(type)) {
-                    return book;
-                }
-            }
-        }
-        return null; 
-    } */
-
     findBookBy(type, value) {
         const result = this.books.find((book) => book[type] === value);
         return result || null;
         }
-
-    /*giveBookByName(bookName) {
-        for (let i = 0; i < this.books.length; i++) {
-            if (String(this.books[i].name) === String(bookName)) {
-                let book = this.books[i];
-                this.books.splice(i, 1);
-                return book;
-            }
-        }
-        return null;
-    }*/
 
     giveBookByName(bookName) {
         const result = this.findBookBy("name", bookName);
@@ -109,7 +86,6 @@ class Library {
         this.books = this.books.filter(book => book.name !== bookName);
         return result;
     }
-
 }
 
 //  Дополнительное задание  
@@ -146,7 +122,6 @@ class Student{
         }
         return sum / subjects.length;
     }
-
 }
 
 
