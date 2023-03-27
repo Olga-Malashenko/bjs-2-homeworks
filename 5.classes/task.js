@@ -22,7 +22,7 @@ class PrintEditionItem {
     } 
 
     fix () {
-        this.state = 1.5 * this.state;
+        this.state *= 1.5;
     } 
     
 }
@@ -75,7 +75,7 @@ class Library {
         }
     }
 
-    findBookBy(type, value) {
+    /*findBookBy(type, value) {
         for (let book of this.books) {
             for (let property in book) {
     
@@ -85,9 +85,14 @@ class Library {
             }
         }
         return null; 
-    }
+    } */
 
-    giveBookByName(bookName) {
+    findBookBy(type, value) {
+        const result = this.books.find((book) => book[type] === value);
+        return result || null;
+        }
+
+    /*giveBookByName(bookName) {
         for (let i = 0; i < this.books.length; i++) {
             if (String(this.books[i].name) === String(bookName)) {
                 let book = this.books[i];
@@ -96,6 +101,13 @@ class Library {
             }
         }
         return null;
+    }*/
+
+    giveBookByName(bookName) {
+        const result = this.findBookBy("name", bookName);
+        if (!result) return null;
+        this.books = this.books.filter(book => book.name !== bookName);
+        return result;
     }
 
 }
