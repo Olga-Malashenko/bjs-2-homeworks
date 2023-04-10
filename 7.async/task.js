@@ -1,12 +1,12 @@
 class AlarmClock {
     constructor() {
         this.alarmCollection = [];
-        this.intervalId;
+        this.intervalId = null;
     }
 
     addClock(formattedTime, func) {
         
-        if(!this.time || !this.callback) {        // проверка, есть ли параметры (выбросить ошибку, если нет)
+        if(!formattedTime || !func) {        // проверка, есть ли параметры (выбросить ошибку, если нет)
             throw new Error('Отсутствуют обязательные аргументы');
             return;
         }
