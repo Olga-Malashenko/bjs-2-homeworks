@@ -36,7 +36,8 @@ class AlarmClock {
     start() {
         if(this.intervalId) return;   // завершаем, если есть значение id
         this.intervalId = setInterval(() => {
-            if(this.alarmCollection.forEach(sound => sound.time === getCurrentFormattedTime())) {
+            let currentTime = getCurrentFormattedTime();
+            if(this.alarmCollection.forEach(sound => sound.time === currentTime)) {
                 this.canCall = false;
                 this.callback();
             }
@@ -54,7 +55,7 @@ class AlarmClock {
 
     clearAlarms() {
         this.stop();
-        alarmCollection = [];
+        this.alarmCollection = [];
     }
 
 }
