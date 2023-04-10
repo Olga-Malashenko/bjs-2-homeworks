@@ -35,13 +35,17 @@ class AlarmClock {
 
     start() {
         if(this.intervalId) return;   // завершаем, если есть значение id
+
         this.intervalId = setInterval(() => {
-            let currentTime = getCurrentFormattedTime();
-            if(this.alarmCollection.forEach(sound => sound.time === currentTime)) {
-                this.canCall = false;
-                this.callback();
-            }
+            let currentTime = this.getCurrentFormattedTime();
+            this.alarmCollection.forEach(sound => {
+                if(sound.time === currentTime) {
+                    sound.canCall = false;
+                    sound.callback();
+                }
+            })
         }, 1000);
+        
     }
 
     stop() {
