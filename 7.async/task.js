@@ -8,12 +8,10 @@ class AlarmClock {
         
         if(!formattedTime || !func) {        // проверка, есть ли параметры (выбросить ошибку, если нет)
             throw new Error('Отсутствуют обязательные аргументы');
-            return;
         }
 
         if(this.alarmCollection.find(sound => sound.time === formattedTime)) {    // проверка времени на повтор
-            console.warn('Уже присутствует звоок на это же время');
-            return; 
+            console.warn('Уже присутствует звоок на это же время'); 
         }
         
         const sound = {        // добавляем в массив объект (новый звонок в коллекцию)
@@ -29,17 +27,22 @@ class AlarmClock {
     }
 
     getCurrentFormattedTime() {
-        const currentDate = new Date();
-        return currentDate.getHours() + ":" + currentDate.getMinutes();
+        const currentDate = new Date().toLocaleTimeString("ru-Ru", {
+            hour: "2-digit",
+            minute: "2-digit",
+          });
+        return currentDate;
     }
 
     start() {
-        if(this.intervalId) return;   // завершаем, если есть значение id
+        if(this.intervalId) {
+            return;
+        }   // завершаем, если есть значение id
 
         this.intervalId = setInterval(() => {
             let currentTime = this.getCurrentFormattedTime();
             this.alarmCollection.forEach(sound => {
-                if(sound.time === currentTime) {
+                if(sound.time === currentTime && sound.canCall) {
                     sound.canCall = false;
                     sound.callback();
                 }
