@@ -25,7 +25,7 @@ class AlarmClock {
     }
 
     removeClock(time) {
-        return this.alarmCollection.filter(sound => sound.time !== time);    //удаляет звонок по свойству time
+        this.alarmCollection = this.alarmCollection.filter(sound => sound.time !== time);    //удаляет звонок по свойству time
     }
 
     getCurrentFormattedTime() {
